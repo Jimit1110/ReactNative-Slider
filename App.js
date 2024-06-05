@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
 
 const App = () => {
   const [sliderState, setSliderState] = useState(0);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{fontWeight:'bold', fontSize: 28, color:'#151fe8'}}>Value: {sliderState}</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Value: {sliderState}</Text>
       <Slider
         style={{ width: 300, height: 40 }}
         minimumValue={0}
@@ -21,5 +21,18 @@ const App = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontWeight:'bold', 
+    fontSize: 28, 
+    color:'#151fe8'
+  }
+});
 
 export default App;
