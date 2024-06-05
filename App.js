@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import Slider from '@react-native-community/slider';
 
-export default function App() {
+const App = () => {
+  const [sliderState, setSliderState] = useState(0);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{fontWeight:'bold', fontSize: 28, color:'#151fe8'}}>Value: {sliderState}</Text>
+      <Slider
+        style={{ width: 300, height: 40 }}
+        minimumValue={0}
+        maximumValue={100}
+        step={25}
+        value={sliderState}
+        minimumTrackTintColor='#151fe8'
+        maximumTrackTintColor='#87878a'
+        onValueChange={(value) => setSliderState(value)}
+      />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
